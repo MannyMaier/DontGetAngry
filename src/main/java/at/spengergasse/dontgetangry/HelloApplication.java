@@ -25,5 +25,5 @@ public class HelloApplication extends Application {
 
     //Hoffetlichsehtihrdas
 
-    //Versuch Stude 2
+    //Versuch Stude 2 lorant
 }
