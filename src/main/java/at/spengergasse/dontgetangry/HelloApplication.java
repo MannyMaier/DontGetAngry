@@ -22,4 +22,6 @@ public class HelloApplication extends Application {
     }
 
     //Wenn man das lesen kann hat's funktioniert!
+
+    //Hoffetlichsehtihrdas
 }
