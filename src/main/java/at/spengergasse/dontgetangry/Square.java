@@ -1,14 +1,27 @@
 package at.spengergasse.dontgetangry;
 
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+
+
+import java.io.File;
 
 /**
  * Eine Klasse von er Instnazen ein Spielfeld sind
  */
 public class Square extends Circle {
 
-    //Attribut das einen Spielstand speichern kann
+    //File figrot = new File("resource/fig_red.png");
+    @FXML
+    ImageView IMGfigrot = new ImageView("file:fig_red.png");
+
+
+    //Attribut das einen Spielstand speichern kann!
     private Spielstein spielstein;
     //Nummerierung der Felder
     private int id;
@@ -36,22 +49,25 @@ public class Square extends Circle {
      */
     public Square(double x, double y, SquareType type, int id) {
         this.id = id;
-        setStrokeWidth(10);
-        setRadius(Spiel.TileSize/2);
+        setFill(null);
+        setStrokeWidth(5);
+        setRadius(Spiel.TileSize/2-2.5);
         if (type == SquareType.NORMAL) {
-            setFill(Color.GREY);
+            setStroke(Color.GREY);
         }
         if (type == SquareType.RED) {
-            setFill(Color.RED);
+            setStroke(Color.RED);
+            //setFill(new ImageView(IMGfigrot));
+
         }
         if (type == SquareType.GREEN) {
-            setFill(Color.GREEN);
+            setStroke(Color.GREEN);
         }
         if (type == SquareType.YELLOW) {
-            setFill(Color.YELLOW);
+            setStroke(Color.YELLOW);
         }
         if (type == SquareType.BLUE) {
-            setFill(Color.BLUE);
+            setStroke(Color.BLUE);
         }
         relocate(x, y);
 
