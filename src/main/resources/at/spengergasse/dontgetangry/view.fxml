@@ -32,7 +32,7 @@
                         </Pane>
                         <Pane layoutY="249.0" prefHeight="200.0" prefWidth="360.0">
                             <children>
-                                <Button layoutX="240.0" layoutY="14.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="114.0" text="Speichern" textAlignment="RIGHT" />
+                                <Button layoutX="240.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickSavedb" prefHeight="83.0" prefWidth="114.0" text="Speichern" textAlignment="RIGHT" />
                             </children>
                         </Pane>
                         <Pane prefHeight="247.0" prefWidth="350.0">

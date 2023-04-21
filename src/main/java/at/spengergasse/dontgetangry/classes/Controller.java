@@ -12,13 +12,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import java.io.File;
 import java.util.Random;
 
 //TODO: Id bestimmen für positionen; Spielfiguren einfügen als Buttons (mit Bild als Hintergrund)
 //Vorschlag: Eine Klasse Spieler; jeder Spieler hat 4 Figuren (Liste) -> über die können die Spielfiguren angezeigt werden usw., Spielstein hat x, y koordinate und Spieler als Attrbiut
 
+
+
+
 public class Controller {
+    EntityManager entityManager = Persistence.createEntityManagerFactory("spielstaende").createEntityManager();
+
+
+
     Parent spielfeld = erstelleSpielfeld();
     @FXML
     private Pane spielfeldpane;
@@ -80,6 +89,13 @@ public class Controller {
     @FXML
     void onClickSavedb (ActionEvent Actionevent){
         System.out.println("Das Spiel wurde in der Datenbank gespeichert");
+
+
+        Spielstand testSD = new Spielstand("NAmetest");
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(testSD);
+        entityManager.getTransaction().commit();
 
     }
 

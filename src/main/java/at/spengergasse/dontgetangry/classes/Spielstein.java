@@ -6,6 +6,9 @@ import javafx.scene.shape.Circle;
 
 public class Spielstein extends Circle {
 
+    //
+
+
     private TypeColor color;
     private Square square;
 
