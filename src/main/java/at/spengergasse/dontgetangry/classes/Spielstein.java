@@ -1,5 +1,6 @@
-package at.spengergasse.dontgetangry;
+package at.spengergasse.dontgetangry.classes;
 
+import at.spengergasse.dontgetangry.Spiel;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 

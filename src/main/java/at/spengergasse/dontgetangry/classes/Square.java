@@ -1,15 +1,10 @@
-package at.spengergasse.dontgetangry;
+package at.spengergasse.dontgetangry.classes;
 
+import at.spengergasse.dontgetangry.Spiel;
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-
-
-import java.io.File;
 
 /**
  * Eine Klasse von er Instnazen ein Spielfeld sind

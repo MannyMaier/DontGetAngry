@@ -1,5 +1,6 @@
-package at.spengergasse.dontgetangry;
+package at.spengergasse.dontgetangry.classes;
 
+import at.spengergasse.dontgetangry.Spiel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;

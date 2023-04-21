@@ -12,7 +12,8 @@ module at.spengergasse.dontgetangry {
 
     opens at.spengergasse.dontgetangry to javafx.fxml;
 
-    opens at.spengergasse.aufgabe07.entities to org.hibernate.orm.core;
+    opens at.spengergasse.dontgetangry.classes to javafx.fxml, org.hibernate.orm.core;
 
     exports at.spengergasse.dontgetangry;
+
 }

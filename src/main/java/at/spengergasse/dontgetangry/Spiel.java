@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//TODO: DB NICHT FERTIG!
+
 public class Spiel extends Application {
 
 
