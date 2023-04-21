@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'at.spengergasse.dontgetangry'
-    mainClass = 'at.spengergasse.dontgetangry.HelloApplication'
+    mainClass = 'at.spengergasse.dontgetangry.Spiel'
 }
 
 javafx {

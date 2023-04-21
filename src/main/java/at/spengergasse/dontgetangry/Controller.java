@@ -63,6 +63,7 @@ public class Controller {
                         rolledInt = random.nextInt(6) + 1;
                         File image = new File("disrc/main/java/at/spengergasse/dontgetangry/resource/ce" + rolledInt + ".png");
                         diceimage.setImage(new Image(image.toURI().toString()));
+                        System.out.println(rolledInt);
                         Thread.sleep(50);
                     }
                     rollButton.setDisable(false);
