@@ -21,6 +21,28 @@ public class Square extends Circle {
     //Nummerierung der Felder
     private int id;
 
+
+    public int get_id() {
+        return id;
+    }
+
+
+    private double xkor;
+    private double ykor;
+
+    public double getXkor() {
+        return xkor;
+    }
+
+    public double getYkor() {
+        return ykor;
+    }
+
+    public String getkords()
+    {
+        return xkor + "+" + ykor;
+    }
+
     private SquareType type;
 
     //TODO: Finish class
@@ -44,6 +66,10 @@ public class Square extends Circle {
      */
     public Square(double x, double y, SquareType type, int id) {
         this.id = id;
+
+        this.xkor = x;
+        this.ykor = y;
+
         setFill(null);
         setStrokeWidth(5);
         setRadius(Spiel.TileSize/2-2.5);
@@ -65,6 +91,8 @@ public class Square extends Circle {
             setStroke(Color.BLUE);
         }
         relocate(x, y);
+
+        System.out.println(id);
 
     }
 }

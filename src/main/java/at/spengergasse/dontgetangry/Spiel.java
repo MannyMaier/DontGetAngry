@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 //TODO: DB NICHT FERTIG!
+/*
+TODOS:
+SPielfelder richtige Reihenfolge
+ */
 
 public class Spiel extends Application {
 

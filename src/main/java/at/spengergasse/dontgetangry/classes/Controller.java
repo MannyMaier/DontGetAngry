@@ -53,6 +53,10 @@ public class Controller {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
+
+   // private Pane pane = new Pane();
+
+
     public Controller() {
 
     }
@@ -108,16 +112,17 @@ public class Controller {
     private Parent erstelleSpielfeld() {
         Group squareGroup = new Group();
         Group spielsteinGroup = new Group();
+        Pane pane = new Pane();
 
         int[][] normalSquarePositions = { {7, 2}, {7, 3}, {7, 4}, {7, 5}, {8, 5}, {9, 5}, {10, 5}, {11, 5}, {11, 6}, {10, 7}, {9, 7}, {8, 7}, {7, 7}, {7, 8}, {7, 9}, {7, 10}, {7, 11},
                 {6, 11}, {5, 10}, {5, 9}, {5, 8}, {5, 7}, {4, 7}, {3, 7}, {2, 7}, {1, 7}, {1, 6}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {5, 4}, {5, 3}, {5, 2}, {5, 1}, {6, 1}};
 
-        Pane pane = new Pane();
 
         //Hilfsvariablen für das Koordinatensystem
         int xGrid = 1;
         int yGrid = 1;
         int id = 1;
+
         for (double x = Spiel.GridPadding; x < Spiel.WindowHeight; x += Spiel.TileSize + 2 * Spiel.GridPadding) {
             for (double y = Spiel.GridPadding; y < Spiel.WindowHeight; y += Spiel.TileSize + 2 * Spiel.GridPadding) {
                 Square square = null;
@@ -127,17 +132,22 @@ public class Controller {
                     square = new Square(x, y, SquareType.NORMAL, id++);
 
                 }
+
+
+
+                //Blaue Felder
+
                 //Zielfeld
                 if (xGrid == 6) {
                     if (yGrid == 2 || yGrid == 3 || yGrid == 4 || yGrid == 5) {
-                        square = new Square(x, y, SquareType.BLUE, 0);
+                        square = new Square(x, y, SquareType.BLUE, -16 );
                     }
 
                 }
                 //Wartefelder
                 if (xGrid == 10) {
                     if (yGrid == 1 || yGrid == 2) {
-                        square = new Square(x, y, SquareType.BLUE, 0);
+                        square = new Square(x, y, SquareType.BLUE, -6);
                         spielstein = new Spielstein(TypeColor.BLUE, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
@@ -151,7 +161,7 @@ public class Controller {
                 }
                 if (xGrid == 11) {
                     if (yGrid == 1 || yGrid == 2) {
-                        square = new Square(x, y, SquareType.BLUE, 0);
+                        square = new Square(x, y, SquareType.BLUE, -6);
                         spielstein = new Spielstein(TypeColor.BLUE, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
@@ -166,16 +176,20 @@ public class Controller {
                 //Einstiegsfeld
                 if (xGrid == 7) {
                     if (yGrid == 1) {
-                        square = new Square(x, y, SquareType.BLUE, 0);
+                        square = new Square(x, y, SquareType.BLUE, -26);
 
                     }
-
-
                 }
+
+
+
+                //Gelbe Felder
+
+
                 //Zielfeld
                 if (xGrid == 6) {
                     if (yGrid == 7 || yGrid == 8 || yGrid == 9 || yGrid == 10) {
-                        square = new Square(x, y, SquareType.YELLOW, 0);
+                        square = new Square(x, y, SquareType.YELLOW, -11);
 
                     }
 
@@ -183,43 +197,45 @@ public class Controller {
                 //Wartefelder
                 if (xGrid == 1) {
                     if (yGrid == 10 || yGrid == 11) {
-                        square = new Square(x, y, SquareType.YELLOW, 0);
+                        square = new Square(x, y, SquareType.YELLOW, -1);
                         spielstein = new Spielstein(TypeColor.YELLOW, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
                         spielstein.setStroke(Color.BLACK);
                         spielstein.setStrokeWidth(4);
-
                     }
 
                 }
                 if (xGrid == 2) {
                     if (yGrid == 10 || yGrid == 11) {
-                        square = new Square(x, y, SquareType.YELLOW, 0);
+                        square = new Square(x, y, SquareType.YELLOW, -1);
                         spielstein = new Spielstein(TypeColor.YELLOW, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
                         spielstein.setStroke(Color.BLACK);
                         spielstein.setStrokeWidth(4);
-
                     }
 
                 }
                 //Einstiegsfeld
                 if (xGrid == 5) {
                     if (yGrid == 11) {
-                        square = new Square(x, y, SquareType.YELLOW, 0);
+                        square = new Square(x, y, SquareType.YELLOW, -21);
 
                     }
-
-
                 }
+
+
+
+                //Rote Felder
+
+
                 //Zielfeld
                 if (yGrid == 6) {
                     if (xGrid == 7 || xGrid == 8 || xGrid == 9 || xGrid == 10) {
-                        square = new Square(x, y, SquareType.RED, 0);
+                        square = new Square(x, y, SquareType.RED, -17);
 
                     }
 
@@ -227,7 +243,7 @@ public class Controller {
                 //Wartefelder
                 if (xGrid == 10) {
                     if (yGrid == 10 || yGrid == 11) {
-                        square = new Square(x, y, SquareType.RED, 0);
+                        square = new Square(x, y, SquareType.RED, -7);
                         spielstein = new Spielstein(TypeColor.RED, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
@@ -240,7 +256,7 @@ public class Controller {
                 }
                 if (xGrid == 11) {
                     if (yGrid == 10 || yGrid == 11) {
-                        square = new Square(x, y, SquareType.RED, 0);
+                        square = new Square(x, y, SquareType.RED, -7);
                         spielstein = new Spielstein(TypeColor.RED, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
@@ -254,16 +270,21 @@ public class Controller {
                 //Einstiegsfeld
                 if (xGrid == 11) {
                     if (yGrid == 7) {
-                        square = new Square(x, y, SquareType.RED, 0);
+                        square = new Square(x, y, SquareType.RED, -27);
 
                     }
 
-
                 }
+
+
+
+
+                //Grüne Felder
+
                 //Zielfeld
                 if (yGrid == 6) {
                     if (xGrid == 2 || xGrid == 3 || xGrid == 4 || xGrid == 5) {
-                        square = new Square(x, y, SquareType.GREEN, 0);
+                        square = new Square(x, y, SquareType.GREEN, -19);
 
                     }
 
@@ -271,7 +292,7 @@ public class Controller {
                 //Wartefelder
                 if (xGrid == 1) {
                     if (yGrid == 1 || yGrid == 2) {
-                        square = new Square(x, y, SquareType.GREEN, 0);
+                        square = new Square(x, y, SquareType.GREEN, -9);
                         spielstein = new Spielstein(TypeColor.GREEN, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
@@ -284,7 +305,7 @@ public class Controller {
                 }
                 if (xGrid == 2) {
                     if (yGrid == 1 || yGrid == 2) {
-                        square = new Square(x, y, SquareType.GREEN, 0);
+                        square = new Square(x, y, SquareType.GREEN, -9);
                         spielstein = new Spielstein(TypeColor.GREEN, x, y);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
@@ -298,7 +319,7 @@ public class Controller {
                 //Einstiegsfeld
                 if (xGrid == 1) {
                     if (yGrid == 5) {
-                        square = new Square(x, y, SquareType.GREEN, 0);
+                        square = new Square(x, y, SquareType.GREEN, -29);
 
                     }
 
@@ -312,12 +333,26 @@ public class Controller {
                 }
 
                 yGrid++;
+
+                if(square != null){
+                    System.out.println(square.getkords());
+                }
+
             }
             xGrid++;
             yGrid = 1;
+
+
         }
+
+
+
         pane.getChildren().addAll(squareGroup);
         pane.getChildren().addAll(spielsteinGroup);
+
+
+
+
         return pane;
 
     }
