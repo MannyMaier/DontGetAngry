@@ -20,6 +20,7 @@ import java.util.Random;
 
 public class Controller {
     Parent spielfeld = erstelleSpielfeld();
+
     @FXML
     private Pane spielfeldpane;
 
@@ -54,27 +55,12 @@ public class Controller {
     }
 
     @FXML
-    void roll(ActionEvent event) {
+    void roll(ActionEvent event) throws InterruptedException {
 
         rollButton.setDisable(true);
-        Thread thread = new Thread() {
-            public void run() {
-                try {
-                    for (int i = 0; i < 15; i++) {
-                        rolledInt = random.nextInt(6) + 1;
-                        File image = new File("disrc/main/java/at/spengergasse/dontgetangry/resource/ce" + rolledInt + ".png");
-                        diceimage.setImage(new Image(image.toURI().toString()));
-                        System.out.println(rolledInt);
-                        Thread.sleep(50);
-                    }
-                    rollButton.setDisable(false);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
-            }
-        };
-        thread.start();
+        rollButton.setDisable(false);
+
     }
 
     @FXML
@@ -666,9 +652,13 @@ public class Controller {
             xGrid++;
             yGrid = 1;
         }
+
+        //Spielstein sp = new Spielstein(SquareType.RED)
+
         pane.getChildren().addAll(squareGroup);
         pane.getChildren().addAll(spielsteinGroup);
         return pane;
 
     }
+
 }

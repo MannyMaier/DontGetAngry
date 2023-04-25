@@ -1,5 +1,6 @@
 package at.spengergasse.dontgetangry;
 
+import at.spengergasse.dontgetangry.classes.Spiellogik;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -43,8 +44,9 @@ public class Spiel extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         launch();
+        Spiellogik.spielstarten();
     }
     public static boolean ArrayContains(int[][] twoDArray, int[] contains){
         for(int[] array:twoDArray){

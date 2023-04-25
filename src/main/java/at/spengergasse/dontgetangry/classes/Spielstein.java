@@ -32,11 +32,13 @@ public class Spielstein extends Circle {
         relocate(x, y);
 
         setOnMouseClicked(event -> {
-            System.out.println("click");
+
+
+            move(3.0, 7.0);
         });
     }
     public void move(double x, double y){
-
+        relocate(x, y);
     }
 
     public String getImage(){

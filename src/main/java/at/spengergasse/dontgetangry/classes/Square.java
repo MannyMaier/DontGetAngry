@@ -92,7 +92,7 @@ public class Square extends Circle {
         }
         relocate(x, y);
 
-        System.out.println(id);
+       // System.out.println(id);
 
     }
 }
