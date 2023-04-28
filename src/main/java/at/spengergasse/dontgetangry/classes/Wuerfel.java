@@ -35,7 +35,7 @@ public class Wuerfel {
         Random r = new Random();
         gewuerfelteZahl = r.nextInt(1, 7);
         System.out.println("gewuefelt" + gewuerfelteZahl);
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         return gewuerfelteZahl;
     }
 

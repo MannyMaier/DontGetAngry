@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class Controller {
     Parent spielfeld = erstelleSpielfeld();
-
+    private static Spiellogik spiellogik = new Spiellogik();
     @FXML
     private Pane spielfeldpane;
 
@@ -50,15 +50,16 @@ public class Controller {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws InterruptedException {
         spielfeldpane.getChildren().add(erstelleSpielfeld());
+        spiellogik.spielstarten(4);
     }
 
     @FXML
     void roll(ActionEvent event) throws InterruptedException {
 
         rollButton.setDisable(true);
-
+        int tfgewuerfelteZahl = Spiellogik.wuerfel.wuerfeln();
         rollButton.setDisable(false);
 
     }

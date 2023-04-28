@@ -46,7 +46,7 @@ public class Spiel extends Application {
 
     public static void main(String[] args) throws InterruptedException {
         launch();
-        Spiellogik.spielstarten();
+
     }
     public static boolean ArrayContains(int[][] twoDArray, int[] contains){
         for(int[] array:twoDArray){
