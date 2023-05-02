@@ -13,6 +13,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 //TODO: Id bestimmen für positionen; Spielfiguren einfügen als Buttons (mit Bild als Hintergrund)
@@ -23,6 +25,10 @@ public class Controller {
     private static Spiellogik spiellogik = new Spiellogik();
     @FXML
     private Pane spielfeldpane;
+
+    private List<Square> allSquares;
+
+
 
     @FXML
     private ImageView diceimage;
@@ -49,10 +55,12 @@ public class Controller {
 
     }
 
+
     @FXML
     public void initialize() throws InterruptedException {
         spielfeldpane.getChildren().add(erstelleSpielfeld());
         spiellogik.spielstarten(4);
+
     }
 
     @FXML
@@ -79,6 +87,7 @@ public class Controller {
     private Parent erstelleSpielfeld() {
         Group squareGroup = new Group();
         Group spielsteinGroup = new Group();
+        allSquares = new ArrayList<>();
 
         int[][] normalSquarePositions = { {7, 2}, {7, 3}, {7, 4}, {7, 5}, {8, 5}, {9, 5}, {10, 5}, {11, 5}, {11, 6}, {10, 7}, {9, 7}, {8, 7}, {7, 7}, {7, 8}, {7, 9}, {7, 10}, {7, 11},
                 {6, 11}, {5, 10}, {5, 9}, {5, 8}, {5, 7}, {4, 7}, {3, 7}, {2, 7}, {1, 7}, {1, 6}, {2, 5}, {3, 5}, {4, 5}, {5, 5}, {5, 4}, {5, 3}, {5, 2}, {5, 1}, {6, 1}};
@@ -310,7 +319,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 1) {
                         square = new Square(x, y, SquareType.BLUE, -300);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -324,7 +333,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 2) {
                         square = new Square(x, y, SquareType.BLUE, -301);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -338,7 +347,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 1) {
                         square = new Square(x, y, SquareType.BLUE, -302);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -352,7 +361,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 2) {
                         square = new Square(x, y, SquareType.BLUE, -303);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -405,7 +414,7 @@ public class Controller {
                 if (xGrid == 1) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.YELLOW, -201);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -418,7 +427,7 @@ public class Controller {
                 if (xGrid == 1) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.YELLOW, -200);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -431,7 +440,7 @@ public class Controller {
                 if (xGrid == 2) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.YELLOW, -203);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -444,7 +453,7 @@ public class Controller {
                 if (xGrid == 2) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.YELLOW, -204);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -496,7 +505,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.RED, -400);
-                        spielstein = new Spielstein(TypeColor.RED, x, y);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -509,7 +518,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.RED, -401);
-                        spielstein = new Spielstein(TypeColor.RED, x, y);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -522,7 +531,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.RED, -402);
-                        spielstein = new Spielstein(TypeColor.RED, x, y);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -535,7 +544,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.RED, -403);
-                        spielstein = new Spielstein(TypeColor.RED, x, y);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -586,7 +595,7 @@ public class Controller {
                 //Wartefelder
                 if (xGrid == 1 && yGrid == 1) {
                         square = new Square(x, y, SquareType.GREEN, -100);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);
@@ -598,7 +607,7 @@ public class Controller {
                 }
                 if (xGrid == 1 && yGrid == 2) {
                         square = new Square(x, y, SquareType.GREEN, -101);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);
@@ -609,7 +618,7 @@ public class Controller {
                 if (xGrid == 2 && yGrid == 1) {
 
                         square = new Square(x, y, SquareType.GREEN, -102);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);
@@ -622,7 +631,7 @@ public class Controller {
                 if (xGrid == 2 && yGrid == 2) {
 
                         square = new Square(x, y, SquareType.GREEN, -103);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);
@@ -649,15 +658,24 @@ public class Controller {
                 }
 
                 yGrid++;
+
+                if(square != null) {
+                    allSquares.add(square);
+                }
             }
             xGrid++;
             yGrid = 1;
+
+
         }
 
         //Spielstein sp = new Spielstein(SquareType.RED)
 
         pane.getChildren().addAll(squareGroup);
         pane.getChildren().addAll(spielsteinGroup);
+
+
+        System.out.println(allSquares);
         return pane;
 
     }

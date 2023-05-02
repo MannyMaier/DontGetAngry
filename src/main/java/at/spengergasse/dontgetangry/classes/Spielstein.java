@@ -11,6 +11,35 @@ public class Spielstein extends Circle {
 
     private TypeColor color;
     private Square square;
+    private Square startSquare;
+    public Square getStartSquare(){
+        return startSquare;
+    }
+
+    public void setStartSquare(Square startSquare) {
+        this.startSquare = startSquare;
+        //this.zielSquare = startSquare.get_id() + 39;
+    }
+
+    private Square zielSquare;
+
+    public Square getZielSquare() {
+        return zielSquare;
+    }
+
+    public void setZielSquare(Square zielSquare) {
+        this.zielSquare = zielSquare;
+    }
+
+    private Boolean rundegemacht = Boolean.FALSE;
+
+    public Boolean getRundegemacht() {
+        return rundegemacht;
+    }
+
+    public void setRundegemacht(Boolean rundegemacht) {
+        this.rundegemacht = rundegemacht;
+    }
 
     public Square getSquare() {
         return square;
@@ -24,12 +53,14 @@ public class Spielstein extends Circle {
         return color;
     }
 
-    public Spielstein(TypeColor color, double x, double y){
+    public Spielstein(TypeColor color, double x, double y, Square aktSquare){
         this.color = color;
+        this.square = aktSquare;
 
         setRadius(Spiel.TileSize/2.5);
         setFill(Color.BLACK);
         relocate(x, y);
+
 
         setOnMouseClicked(event -> {
 
