@@ -95,4 +95,15 @@ public class Square extends Circle {
        // System.out.println(id);
 
     }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "spielstein=" + spielstein +
+                ", id=" + id +
+                ", xkor=" + xkor +
+                ", ykor=" + ykor +
+                ", type=" + type +
+                '}';
+    }
 }

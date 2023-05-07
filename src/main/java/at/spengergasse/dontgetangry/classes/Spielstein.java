@@ -88,5 +88,11 @@ public class Spielstein extends Circle {
         return getImage();
     }
 
-
+    @Override
+    public String toString() {
+        return "Spielstein{" +
+                "color=" + color +
+                ", square=" + //square +
+                '}';
+    }
 }

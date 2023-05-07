@@ -6,6 +6,12 @@ import java.util.List;
 public class Spiellogik {
     //Variabeln
     public static Wuerfel wuerfel = new Wuerfel();
+    private List<Square> slSquares = new ArrayList<>();
+
+    public void setSlSquares(List<Square> slSquares) {
+        this.slSquares = slSquares;
+        System.out.println("SL:"+slSquares);
+    }
 
     private List<Spieler> Spielerliste = new ArrayList<Spieler>();
 
@@ -28,19 +34,63 @@ public class Spiellogik {
         System.out.println(Spielerliste);
     }
 
-    public static void spielsteinClicked(Spielstein spielstein, int gewuerfeltezahl, Square aktSquare){
+    public void spielsteinClicked(Spielstein spielstein, int gewuerfeltezahl, Square aktSquare){
         int aktId = aktSquare.get_id();
         int neueId = aktId + gewuerfeltezahl;
+        int zugfeleruebrig = 0;
+        Square newSqaure;
+
         if(aktId > 0){
-            if(aktId + gewuerfeltezahl < 40) {
-                neueId = aktId + gewuerfeltezahl - 40;
+            if(neueId > 40) {
+                neueId -= 40;
                 spielstein.setRundegemacht(Boolean.TRUE);
             }
-            if(neueId >= spielstein.getStartSquare().get_id() && spielstein.getRundegemacht() == Boolean.TRUE){
 
+            //Zielfeld befüllen
+            if(neueId >= spielstein.getStartSquare().get_id() && spielstein.getRundegemacht() == Boolean.TRUE){
+                zugfeleruebrig = neueId - spielstein.getStartSquare().get_id();
+
+                if(spielstein.getColor() == TypeColor.BLUE){
+                    neueId = -310 - zugfeleruebrig;
+                } else if (spielstein.getColor() == TypeColor.RED) {
+                    neueId = -410 - zugfeleruebrig;
+                }else if (spielstein.getColor() == TypeColor.YELLOW) {
+                    neueId = -210 - zugfeleruebrig;
+                }else if (spielstein.getColor() == TypeColor.GREEN) {
+                    neueId = -110 - zugfeleruebrig;
+                }
             }
         }
 
+        if(aktId < 0 && gewuerfeltezahl == 6 && aktId > -110){
+            if(spielstein.getColor() == TypeColor.BLUE){
+                neueId = 1;
+            } else if (spielstein.getColor() == TypeColor.RED) {
+                neueId = 11;
+            }else if (spielstein.getColor() == TypeColor.YELLOW) {
+                neueId = 21;
+            }else if (spielstein.getColor() == TypeColor.GREEN) {
+                neueId = 31;
+            }
+        }
+
+        newSqaure = searchSquare(neueId);
+        double neuX = newSqaure.getXkor();
+        double neuY = newSqaure.getYkor();
+
+        spielstein.setSquare(newSqaure);
+        newSqaure.setSpielstein(spielstein);
+        spielstein.move(neuX, neuY);
+
+    }
+
+    public Square searchSquare(int gesId){
+        for(Square square : slSquares){
+            if(square.get_id() == gesId){
+                return square;
+            }
+        }
+        return null;
     }
 
 }

@@ -16,6 +16,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 //TODO: Id bestimmen für positionen; Spielfiguren einfügen als Buttons (mit Bild als Hintergrund)
 //Vorschlag: Eine Klasse Spieler; jeder Spieler hat 4 Figuren (Liste) -> über die können die Spielfiguren angezeigt werden usw., Spielstein hat x, y koordinate und Spieler als Attrbiut
@@ -26,7 +27,7 @@ public class Controller {
     @FXML
     private Pane spielfeldpane;
 
-    private List<Square> allSquares;
+    public ArrayList<Square> allSquares;
 
 
 
@@ -675,7 +676,8 @@ public class Controller {
         pane.getChildren().addAll(spielsteinGroup);
 
 
-        System.out.println(allSquares);
+        System.out.println("Alle Squares: " + allSquares);
+        spiellogik.setSlSquares(allSquares);
         return pane;
 
     }
