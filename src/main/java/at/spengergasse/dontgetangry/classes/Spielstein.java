@@ -12,6 +12,7 @@ public class Spielstein extends Circle {
     private TypeColor color;
     private Square square;
     private Square startSquare;
+    private Spiellogik spiellogik;
     public Square getStartSquare(){
         return startSquare;
     }
@@ -53,9 +54,10 @@ public class Spielstein extends Circle {
         return color;
     }
 
-    public Spielstein(TypeColor color, double x, double y, Square aktSquare){
+    public Spielstein(TypeColor color, double x, double y, Square aktSquare, Spiellogik sl){
         this.color = color;
         this.square = aktSquare;
+        this.spiellogik = sl;
 
         setRadius(Spiel.TileSize/2.5);
         setFill(Color.BLACK);
@@ -63,9 +65,9 @@ public class Spielstein extends Circle {
 
 
         setOnMouseClicked(event -> {
+            spiellogik.spielsteinClicked(this, spiellogik.wuerfel.getGewuerfelteZahl(), this.square);
 
 
-            move(3.0, 7.0);
         });
     }
     public void move(double x, double y){

@@ -320,7 +320,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 1) {
                         square = new Square(x, y, SquareType.BLUE, -300);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -334,7 +334,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 2) {
                         square = new Square(x, y, SquareType.BLUE, -301);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -348,7 +348,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 1) {
                         square = new Square(x, y, SquareType.BLUE, -302);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -362,7 +362,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 2) {
                         square = new Square(x, y, SquareType.BLUE, -303);
-                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square);
+                        spielstein = new Spielstein(TypeColor.BLUE, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.BLUE);
@@ -415,7 +415,7 @@ public class Controller {
                 if (xGrid == 1) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.YELLOW, -201);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -428,7 +428,7 @@ public class Controller {
                 if (xGrid == 1) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.YELLOW, -200);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -441,7 +441,7 @@ public class Controller {
                 if (xGrid == 2) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.YELLOW, -203);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -454,7 +454,7 @@ public class Controller {
                 if (xGrid == 2) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.YELLOW, -204);
-                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square);
+                        spielstein = new Spielstein(TypeColor.YELLOW, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.YELLOW);
@@ -506,7 +506,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.RED, -400);
-                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -519,7 +519,7 @@ public class Controller {
                 if (xGrid == 10) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.RED, -401);
-                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -532,7 +532,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 10) {
                         square = new Square(x, y, SquareType.RED, -402);
-                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -545,7 +545,7 @@ public class Controller {
                 if (xGrid == 11) {
                     if (yGrid == 11) {
                         square = new Square(x, y, SquareType.RED, -403);
-                        spielstein = new Spielstein(TypeColor.RED, x, y, square);
+                        spielstein = new Spielstein(TypeColor.RED, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.RED);
@@ -596,7 +596,7 @@ public class Controller {
                 //Wartefelder
                 if (xGrid == 1 && yGrid == 1) {
                         square = new Square(x, y, SquareType.GREEN, -100);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);
@@ -608,7 +608,7 @@ public class Controller {
                 }
                 if (xGrid == 1 && yGrid == 2) {
                         square = new Square(x, y, SquareType.GREEN, -101);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);
@@ -619,7 +619,7 @@ public class Controller {
                 if (xGrid == 2 && yGrid == 1) {
 
                         square = new Square(x, y, SquareType.GREEN, -102);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);
@@ -632,7 +632,7 @@ public class Controller {
                 if (xGrid == 2 && yGrid == 2) {
 
                         square = new Square(x, y, SquareType.GREEN, -103);
-                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square);
+                        spielstein = new Spielstein(TypeColor.GREEN, x, y, square, spiellogik);
                         square.setSpielstein(spielstein);
                         spielstein.setSquare(square);
                         spielstein.setFill(Color.GREEN);

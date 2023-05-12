@@ -75,6 +75,7 @@ public class Spiellogik {
         }
 
         newSqaure = searchSquare(neueId);
+        System.out.println(newSqaure);
         double neuX = newSqaure.getXkor();
         double neuY = newSqaure.getYkor();
 
@@ -85,12 +86,16 @@ public class Spiellogik {
     }
 
     public Square searchSquare(int gesId){
-        for(Square square : slSquares){
-            if(square.get_id() == gesId){
-                return square;
+
+        Square square;
+            for(Square squarefor : slSquares){
+                if(squarefor.get_id() == gesId){
+                    square = squarefor;
+                    return square;
+                }
             }
-        }
         return null;
+
     }
 
 }
