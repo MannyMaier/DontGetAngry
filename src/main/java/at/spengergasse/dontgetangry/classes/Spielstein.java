@@ -12,6 +12,12 @@ public class Spielstein extends Circle {
     private TypeColor color;
     private Square square;
     private Square startSquare;
+    private Square warteSquare;
+
+    public Square getWarteSquare() {
+        return warteSquare;
+    }
+
     private Spiellogik spiellogik;
     public Square getStartSquare(){
         return startSquare;
@@ -58,6 +64,7 @@ public class Spielstein extends Circle {
         this.color = color;
         this.square = aktSquare;
         this.spiellogik = sl;
+        this.warteSquare = aktSquare;
 
         setRadius(Spiel.TileSize/2.5);
         setFill(Color.BLACK);

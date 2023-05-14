@@ -38,50 +38,90 @@ public class Spiellogik {
         int aktId = aktSquare.get_id();
         int neueId = aktId + gewuerfeltezahl;
         int zugfeleruebrig = 0;
+        Integer startfeldId = null;
         Square newSqaure;
 
-        if(aktId > 0){
-            if(neueId > 40) {
-                neueId -= 40;
-                spielstein.setRundegemacht(Boolean.TRUE);
-            }
+        if(aktId != -113 && aktId != -213 && aktId != -313 && aktId != -413) {
 
-            //Zielfeld befüllen
-            if(neueId >= spielstein.getStartSquare().get_id() && spielstein.getRundegemacht() == Boolean.TRUE){
-                zugfeleruebrig = neueId - spielstein.getStartSquare().get_id();
+            if (aktId > 0) {
+                //Runde gemacht (oben vorbei gekommen)
+                if (neueId > 40) {
+                    neueId -= 40;
+                    spielstein.setRundegemacht(Boolean.TRUE);
+                }
 
-                if(spielstein.getColor() == TypeColor.BLUE){
-                    neueId = -310 - zugfeleruebrig;
-                } else if (spielstein.getColor() == TypeColor.RED) {
-                    neueId = -410 - zugfeleruebrig;
-                }else if (spielstein.getColor() == TypeColor.YELLOW) {
-                    neueId = -210 - zugfeleruebrig;
-                }else if (spielstein.getColor() == TypeColor.GREEN) {
-                    neueId = -110 - zugfeleruebrig;
+                //Zielfeld befüllen
+                if (neueId >= spielstein.getStartSquare().get_id() && spielstein.getRundegemacht() == Boolean.TRUE) {
+                    zugfeleruebrig = neueId - spielstein.getStartSquare().get_id();
+
+                    if (spielstein.getColor() == TypeColor.BLUE) {
+                        neueId = -310 - zugfeleruebrig;
+                    } else if (spielstein.getColor() == TypeColor.RED) {
+                        neueId = -410 - zugfeleruebrig;
+                    } else if (spielstein.getColor() == TypeColor.YELLOW) {
+                        neueId = -210 - zugfeleruebrig;
+                    } else if (spielstein.getColor() == TypeColor.GREEN) {
+                        neueId = -110 - zugfeleruebrig;
+                    }
                 }
             }
-        }
 
-        if(aktId < 0 && gewuerfeltezahl == 6 && aktId > -110){
-            if(spielstein.getColor() == TypeColor.BLUE){
-                neueId = 1;
-            } else if (spielstein.getColor() == TypeColor.RED) {
-                neueId = 11;
-            }else if (spielstein.getColor() == TypeColor.YELLOW) {
-                neueId = 21;
-            }else if (spielstein.getColor() == TypeColor.GREEN) {
-                neueId = 31;
+            //Aus dem Wartefeld gehen
+
+            if (aktId < 0 && gewuerfeltezahl == 6) {
+                if (aktId > -110 && aktId <= -100 && spielstein.getColor() == TypeColor.GREEN) {
+                    neueId = 31;
+                    startfeldId = neueId;
+                } else if (aktId > -210 && aktId <= -200 && spielstein.getColor() == TypeColor.YELLOW) {
+                    neueId = 21;
+                    startfeldId = neueId;
+                } else if (aktId > -310 && aktId <= -300 && spielstein.getColor() == TypeColor.BLUE) {
+                    neueId = 1;
+                    startfeldId = neueId;
+                } else if (aktId > -410 && aktId <= -400 && spielstein.getColor() == TypeColor.RED) {
+                    neueId = 11;
+                    startfeldId = neueId;
+                }
+            } else if((aktId <= -100 && aktId >= -113) || (aktId <= -200 && aktId >= -213) || (aktId <= -300 && aktId >= -313) || (aktId <= -400 && aktId >= -413))
+            {
+                neueId = aktId;
             }
+
+
+            if (aktId <= -110 && aktId >= -113) {
+                if (aktId - gewuerfeltezahl >= -113) {
+                    neueId = aktId - gewuerfeltezahl;
+                }
+            } else if (aktId <= -210 && aktId >= -213) {
+                if (aktId - gewuerfeltezahl >= -213) {
+                    neueId = aktId - gewuerfeltezahl;
+                }
+            } else if (aktId <= -310 && aktId >= -313) {
+                if (aktId - gewuerfeltezahl >= -313) {
+                    neueId = aktId - gewuerfeltezahl;
+                }
+            } else if (aktId <= -410 && aktId >= -413) {
+                if (aktId - gewuerfeltezahl >= -413) {
+                    neueId = aktId - gewuerfeltezahl;
+                }
+            }
+            //System.out.println(aktId + "| " + gewuerfeltezahl);
+            System.out.println(neueId);
+
+            newSqaure = searchSquare(neueId);
+            //System.out.println(newSqaure);
+            double neuX = newSqaure.getXkor();
+            double neuY = newSqaure.getYkor();
+
+            spielstein.setSquare(newSqaure);
+            if (startfeldId != null) {
+                spielstein.setStartSquare(newSqaure);
+            }
+            newSqaure.setSpielstein(spielstein);
+
+            System.out.println(newSqaure);
+            spielstein.move(neuX, neuY);
         }
-
-        newSqaure = searchSquare(neueId);
-        System.out.println(newSqaure);
-        double neuX = newSqaure.getXkor();
-        double neuY = newSqaure.getYkor();
-
-        spielstein.setSquare(newSqaure);
-        newSqaure.setSpielstein(spielstein);
-        spielstein.move(neuX, neuY);
 
     }
 

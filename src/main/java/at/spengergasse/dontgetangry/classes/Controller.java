@@ -200,7 +200,7 @@ public class Controller {
                     }
                     if (xGrid == 6) {
                         if (yGrid == 1) {
-                            square = new Square(x, y, SquareType.NORMAL, 19);
+                            square = new Square(x, y, SquareType.NORMAL, 40);
                         }
                     }
                     if (xGrid == 5) {
@@ -385,28 +385,28 @@ public class Controller {
                 //Zielfeld
                 if (xGrid == 6) {
                     if (yGrid == 7) {
-                        square = new Square(x, y, SquareType.YELLOW, -210);
+                        square = new Square(x, y, SquareType.YELLOW, -213);
 
                     }
 
                 }
                 if (xGrid == 6) {
                     if (yGrid == 8) {
-                        square = new Square(x, y, SquareType.YELLOW, -211);
-
-                    }
-
-                }
-                if (xGrid == 6) {
-                    if (yGrid == 9) {
                         square = new Square(x, y, SquareType.YELLOW, -212);
 
                     }
 
                 }
                 if (xGrid == 6) {
+                    if (yGrid == 9) {
+                        square = new Square(x, y, SquareType.YELLOW, -211);
+
+                    }
+
+                }
+                if (xGrid == 6) {
                     if (yGrid == 10) {
-                        square = new Square(x, y, SquareType.YELLOW, -213);
+                        square = new Square(x, y, SquareType.YELLOW, -210);
 
                     }
 
@@ -476,28 +476,28 @@ public class Controller {
                 //Zielfeld
                 if (yGrid == 6) {
                     if (xGrid == 7) {
-                        square = new Square(x, y, SquareType.RED, -410);
+                        square = new Square(x, y, SquareType.RED, -413);
 
                     }
 
                 }
                 if (yGrid == 6) {
                     if (xGrid == 8) {
-                        square = new Square(x, y, SquareType.RED, -411);
-
-                    }
-
-                }
-                if (yGrid == 6) {
-                    if (xGrid == 9) {
                         square = new Square(x, y, SquareType.RED, -412);
 
                     }
 
                 }
                 if (yGrid == 6) {
+                    if (xGrid == 9) {
+                        square = new Square(x, y, SquareType.RED, -411);
+
+                    }
+
+                }
+                if (yGrid == 6) {
                     if (xGrid == 10) {
-                        square = new Square(x, y, SquareType.RED, -413);
+                        square = new Square(x, y, SquareType.RED, -410);
 
                     }
 
