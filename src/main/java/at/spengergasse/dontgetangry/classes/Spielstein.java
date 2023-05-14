@@ -97,6 +97,14 @@ public class Spielstein extends Circle {
         return getImage();
     }
 
+    public void GoToWarteSquare()
+    {
+        this.square = warteSquare;
+        double x = warteSquare.getXkor();
+        double y = warteSquare.getYkor();
+        relocate(x, y);
+    }
+
     @Override
     public String toString() {
         return "Spielstein{" +

@@ -82,8 +82,10 @@ public class Spiellogik {
                     neueId = 11;
                     startfeldId = neueId;
                 }
-            } else if((aktId <= -100 && aktId >= -113) || (aktId <= -200 && aktId >= -213) || (aktId <= -300 && aktId >= -313) || (aktId <= -400 && aktId >= -413))
-            {
+
+                //aktSquare.setSpielstein(null);
+
+            } else if ((aktId <= -100 && aktId >= -113) || (aktId <= -200 && aktId >= -213) || (aktId <= -300 && aktId >= -313) || (aktId <= -400 && aktId >= -413)) {
                 neueId = aktId;
             }
 
@@ -109,18 +111,30 @@ public class Spiellogik {
             System.out.println(neueId);
 
             newSqaure = searchSquare(neueId);
-            //System.out.println(newSqaure);
-            double neuX = newSqaure.getXkor();
-            double neuY = newSqaure.getYkor();
 
-            spielstein.setSquare(newSqaure);
-            if (startfeldId != null) {
-                spielstein.setStartSquare(newSqaure);
+            boolean fahren = Boolean.TRUE;
+
+            if (newSqaure.hatSpielstein() == Boolean.TRUE) {
+                if(newSqaure.getSpielstein().getColor() != spielstein.getColor()){
+                    newSqaure.getSpielstein().GoToWarteSquare();
+                    newSqaure.setSpielstein(null);
+                    fahren = Boolean.TRUE;
+                }else if(newSqaure.getSpielstein().getColor() == spielstein.getColor()) {
+
+                    fahren = Boolean.FALSE;}
             }
-            newSqaure.setSpielstein(spielstein);
-
-            System.out.println(newSqaure);
-            spielstein.move(neuX, neuY);
+            if(fahren == Boolean.TRUE) {
+                aktSquare.setSpielstein(null);
+                double neuX = newSqaure.getXkor();
+                double neuY = newSqaure.getYkor();
+                spielstein.setSquare(newSqaure);
+                if (startfeldId != null) {
+                    spielstein.setStartSquare(newSqaure);
+                }
+                newSqaure.setSpielstein(spielstein);
+                System.out.println(newSqaure);
+                spielstein.move(neuX, neuY);
+            }
         }
 
     }
