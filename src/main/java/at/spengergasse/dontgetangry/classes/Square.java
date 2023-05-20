@@ -71,7 +71,7 @@ public class Square extends Circle {
         this.ykor = y;
 
         setFill(null);
-        setStrokeWidth(5);
+        setStrokeWidth(8);
         setRadius(Spiel.TileSize/2-2.5);
         if (type == SquareType.NORMAL) {
             setStroke(Color.GREY);

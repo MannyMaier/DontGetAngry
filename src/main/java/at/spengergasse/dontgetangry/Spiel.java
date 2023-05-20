@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -39,6 +40,7 @@ public class Spiel extends Application {
 
         Parent fxmlLoader = FXMLLoader.load(getClass().getResource("view.fxml"));
         Scene scene = new Scene(fxmlLoader);
+        scene.setFill(Color.BURLYWOOD);
         stage.setTitle("Dont get angry");
         stage.setScene(scene);
         stage.show();
