@@ -27,7 +27,7 @@
                         </ImageView>
                         <Pane layoutY="447.0" prefHeight="273.0" prefWidth="360.0">
                      <children>
-                                <Button layoutX="228.0" layoutY="184.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="104.0" style="-fx-background-color:#000000" text="Regelwerk" textFill="WHITE">
+                                <Button fx:id="regelwerkButton" layoutX="228.0" layoutY="184.0" onAction="#regelwerkButtonclick" mnemonicParsing="false" prefHeight="75.0" prefWidth="104.0" style="-fx-background-color:#000000" text="Regelwerk" textFill="WHITE">
                            <font>
                               <Font name="Bookman Old Style Italic" size="16.0" />
                            </font></Button>
@@ -37,15 +37,15 @@
                             <children>
                                 <Button layoutX="218.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickSavedb" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color:#000000" text="Speichern" textFill="WHITE">
                            <font>
-                              <Font name="Arial Rounded MT Bold" size="18.0" />
+                              <Font name="Bookman Old Style Italic" size="18.0" />
                            </font></Button>
                             </children>
                         </Pane>
                         <Pane prefHeight="247.0" prefWidth="350.0">
                             <children>
-                                <Button fx:id="rollButton" layoutX="225.0" layoutY="6.0" mnemonicParsing="false" onAction="#roll" prefHeight="67.0" prefWidth="104.0" style="-fx-background-color:#000000" text="Roll" textFill="WHITE">
+                                <Button fx:id="rollButton" layoutX="225.0" layoutY="6.0" mnemonicParsing="false" onAction="#roll" prefHeight="67.0" prefWidth="104.0" style="-fx-background-color:#000000" text="Würfeln" textFill="WHITE">
                                     <font>
-                                        <Font name="Agency FB Bold" size="35.0" />
+                                        <Font name="Bookman Old Style Italic" size="18.0" />
                                     </font>
                                 </Button>
                         <Label layoutX="175.0" layoutY="152.0" prefHeight="75.0" prefWidth="145.0" text="Gewürfelte Zahl:">

@@ -5,12 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,6 +31,8 @@ public class Controller {
 
     public ArrayList<Square> allSquares;
 
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
 
 
     @FXML
@@ -38,6 +42,9 @@ public class Controller {
 
     @FXML
     private Button rollButton;
+
+    @FXML
+    private Button regelwerkButton;
 
     private int rolledInt;
 
@@ -70,6 +77,18 @@ public class Controller {
         rollButton.setDisable(true);
         int tfgewuerfelteZahl = Spiellogik.wuerfel.wuerfeln();
         rollButton.setDisable(false);
+
+    }
+
+    @FXML
+    void regelwerkButtonclick(ActionEvent event) {
+        alert.setTitle("Regeln");
+        alert.setHeaderText("Don't get angry Regeln");
+        alert.setContentText("1. Jeder Spieler hat vier Figuren \n2. Man muss eine sechs würfeln um mit der Figur einzutreten \n" +
+                "3. Wenn eine andere Figur auf das Feld der eigenen kommt muss man seine Figur wieder auf dem Wartefeld platieren \n" +
+                "4. Derjenige der zuerst alle Figuren im Zielfeld hat, gewinnt das Spiel");
+        alert.initStyle(StageStyle.UTILITY);
+        alert.showAndWait();
 
     }
 
