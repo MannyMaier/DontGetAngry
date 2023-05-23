@@ -1,18 +1,25 @@
 package at.spengergasse.dontgetangry.classes;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Spiellogik {
     //Variabeln
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @OneToOne
     public static Wuerfel wuerfel = new Wuerfel();
+    @OneToMany
     private List<Square> slSquares = new ArrayList<>();
 
     public void setSlSquares(List<Square> slSquares) {
         this.slSquares = slSquares;
         System.out.println("SL:"+slSquares);
     }
-
+    @OneToMany
     private List<Spieler> Spielerliste = new ArrayList<Spieler>();
 
     //public static List<Square> allSquares = new ArrayList<Square>();

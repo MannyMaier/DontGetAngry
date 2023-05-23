@@ -1,15 +1,23 @@
 package at.spengergasse.dontgetangry.classes;
 
-import javax.persistence.*;
 
-@Entity
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import java.util.List;
+
 public class Spielstand {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
+    EntityManager em = Persistence.createEntityManagerFactory("spielstaende").createEntityManager();
 
-    public Spielstand(String string){
+    String jpql = "SELECT s FROM Spiellogik s";
+
+    public void save(List<Spiellogik> spiellogiks){
+        em.getTransaction().begin();
+
+        for(Spiellogik sl : spiellogiks){
+            em.persist(sl);
+        }
+        em.getTransaction().commit();
     }
 
     public Spielstand() {

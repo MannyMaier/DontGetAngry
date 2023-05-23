@@ -6,9 +6,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 /**
  * Eine Klasse von er Instnazen ein Spielfeld sind
  */
+
+@Entity
 public class Square extends Circle {
 
     //File figrot = new File("resource/fig_red.png");
@@ -17,9 +23,16 @@ public class Square extends Circle {
 
 
     //Attribut das einen Spielstand speichern kann!
+    @OneToOne
     private Spielstein spielstein;
+
     //Nummerierung der Felder
+    @Id
     private int id;
+
+    public Square() {
+
+    }
 
 
     public int get_id() {

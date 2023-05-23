@@ -2,10 +2,19 @@ package at.spengergasse.dontgetangry.classes;
 
 import javafx.scene.image.Image;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.File;
 import java.util.Random;
 
+@Entity
 public class Wuerfel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private int gewuerfelteZahl;
 
     public int wuerfeln() throws InterruptedException {

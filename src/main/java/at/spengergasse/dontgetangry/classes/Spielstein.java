@@ -4,20 +4,34 @@ import at.spengergasse.dontgetangry.Spiel;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import javax.persistence.*;
+
+@Entity
+
 public class Spielstein extends Circle {
 
     //
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
 
     private TypeColor color;
+    @OneToOne
     private Square square;
+    @OneToOne
     private Square startSquare;
+    @OneToOne
     private Square warteSquare;
+
+    public Spielstein() {
+
+    }
 
     public Square getWarteSquare() {
         return warteSquare;
     }
 
+    @OneToMany
     private Spiellogik spiellogik;
     public Square getStartSquare(){
         return startSquare;
@@ -28,6 +42,7 @@ public class Spielstein extends Circle {
         //this.zielSquare = startSquare.get_id() + 39;
     }
 
+    @OneToOne
     private Square zielSquare;
 
     public Square getZielSquare() {

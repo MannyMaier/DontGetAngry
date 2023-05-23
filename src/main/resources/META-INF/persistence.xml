@@ -4,7 +4,13 @@
              version="2.0">
 
     <persistence-unit name="spielstaende">
+        <class>at.spengergasse.dontgetangry.classes.Controller</class>
+        <class>at.spengergasse.dontgetangry.classes.Spieler</class>
+        <class>at.spengergasse.dontgetangry.classes.Spiellogik</class>
         <class>at.spengergasse.dontgetangry.classes.Spielstand</class>
+        <class>at.spengergasse.dontgetangry.classes.Spielstein</class>
+        <class>at.spengergasse.dontgetangry.classes.Square</class>
+        <class>at.spengergasse.dontgetangry.classes.Wuerfel</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/spielstaende" />

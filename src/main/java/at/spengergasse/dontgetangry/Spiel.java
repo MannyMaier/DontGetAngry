@@ -1,6 +1,7 @@
 package at.spengergasse.dontgetangry;
 
 import at.spengergasse.dontgetangry.classes.Spiellogik;
+import at.spengergasse.dontgetangry.classes.Spielstand;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -29,7 +30,9 @@ public class Spiel extends Application {
     public static final double TileSize = (WindowHeight/11)-((WindowHeight*0.01)*2);
     public static final double GridPadding = WindowHeight*0.01;
 
+    public static Spielstand spielstand = new Spielstand();
 
+    private Stage prstage;
 
     //zeichnet das komplette Spielfeld
 
@@ -44,11 +47,13 @@ public class Spiel extends Application {
         stage.setTitle("Dont get angry");
         stage.setScene(scene);
         stage.show();
+        this.prstage = stage;
+
     }
 
     public static void main(String[] args) throws InterruptedException {
         launch();
-
+        //spielstand.save();
     }
     public static boolean ArrayContains(int[][] twoDArray, int[] contains){
         for(int[] array:twoDArray){
