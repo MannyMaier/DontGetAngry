@@ -31,7 +31,7 @@ public class Controller {
 
     public ArrayList<Square> allSquares;
 
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    @FXML Label LgewuerfelteZahl;
 
 
 
@@ -76,12 +76,14 @@ public class Controller {
 
         rollButton.setDisable(true);
         int tfgewuerfelteZahl = Spiellogik.wuerfel.wuerfeln();
+        LgewuerfelteZahl.setText(String.valueOf(tfgewuerfelteZahl));
         rollButton.setDisable(false);
 
     }
 
     @FXML
     void regelwerkButtonclick(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Regeln");
         alert.setHeaderText("Don't get angry Regeln");
         alert.setContentText("1. Jeder Spieler hat vier Figuren \n2. Man muss eine sechs würfeln um mit der Figur einzutreten \n" +
@@ -89,6 +91,7 @@ public class Controller {
                 "4. Derjenige der zuerst alle Figuren im Zielfeld hat, gewinnt das Spiel");
         alert.initStyle(StageStyle.UTILITY);
         alert.showAndWait();
+
 
     }
 

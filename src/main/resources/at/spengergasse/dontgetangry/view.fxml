@@ -27,7 +27,7 @@
                         </ImageView>
                         <Pane layoutY="447.0" prefHeight="273.0" prefWidth="360.0">
                      <children>
-                                <Button fx:id="regelwerkButton" layoutX="228.0" layoutY="184.0" onAction="#regelwerkButtonclick" mnemonicParsing="false" prefHeight="75.0" prefWidth="104.0" style="-fx-background-color:#000000" text="Regelwerk" textFill="WHITE">
+                                <Button fx:id="regelwerkButton" layoutX="228.0" layoutY="184.0" mnemonicParsing="false" onAction="#regelwerkButtonclick" prefHeight="75.0" prefWidth="104.0" style="-fx-background-color:#000000" text="Regelwerk" textFill="WHITE">
                            <font>
                               <Font name="Bookman Old Style Italic" size="16.0" />
                            </font></Button>
@@ -48,11 +48,16 @@
                                         <Font name="Bookman Old Style Italic" size="18.0" />
                                     </font>
                                 </Button>
-                        <Label layoutX="175.0" layoutY="152.0" prefHeight="75.0" prefWidth="145.0" text="Gewürfelte Zahl:">
+                        <Label layoutX="163.0" layoutY="148.0" prefHeight="75.0" prefWidth="145.0" text="Gewürfelte Zahl:">
                            <font>
                               <Font name="System Italic" size="18.0" />
                            </font>
                         </Label>
+                                <Label fx:id="LgewuerfelteZahl" layoutX="308.0" layoutY="148.0" prefHeight="75.0" prefWidth="28.0" text="hi">
+                                    <font>
+                                        <Font name="System Italic" size="18.0" />
+                                    </font>
+                                </Label>
                             </children>
                         </Pane>
                     </children>
