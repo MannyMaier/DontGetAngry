@@ -1,3 +1,4 @@
+/*
 package at.spengergasse.dontgetangry.classes;
 
 import javax.persistence.Entity;
@@ -26,3 +27,4 @@ public class Spieler {
                 '}';
     }
 }
+*/

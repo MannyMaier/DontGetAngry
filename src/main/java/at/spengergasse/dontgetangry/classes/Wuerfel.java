@@ -2,14 +2,12 @@ package at.spengergasse.dontgetangry.classes;
 
 import javafx.scene.image.Image;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.File;
 import java.util.Random;
 
 @Entity
+@Table(name = "wuerfel")
 public class Wuerfel {
 
     @Id

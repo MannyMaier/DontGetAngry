@@ -4,10 +4,6 @@
              version="2.0">
 
     <persistence-unit name="spielstaende">
-        <class>at.spengergasse.dontgetangry.classes.Controller</class>
-        <class>at.spengergasse.dontgetangry.classes.Spieler</class>
-        <class>at.spengergasse.dontgetangry.classes.Spiellogik</class>
-        <class>at.spengergasse.dontgetangry.classes.Spielstand</class>
         <class>at.spengergasse.dontgetangry.classes.Spielstein</class>
         <class>at.spengergasse.dontgetangry.classes.Square</class>
         <class>at.spengergasse.dontgetangry.classes.Wuerfel</class>
@@ -16,7 +12,7 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/spielstaende" />
             <property name="javax.persistence.jdbc.password" value=""/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.schema-generation.database.action" value="create" />
+            <property name="javax.persistence.schema-generation.database.action" value="none" />
             <property name="hibernate.show_sql" value="true" />
         </properties>
     </persistence-unit>

@@ -1,7 +1,7 @@
 package at.spengergasse.dontgetangry;
 
 import at.spengergasse.dontgetangry.classes.Spiellogik;
-import at.spengergasse.dontgetangry.classes.Spielstand;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -11,6 +11,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +24,11 @@ SPielfelder richtige Reihenfolge
  */
 
 public class Spiel extends Application {
+    public static EntityManager getManager() {
+        return manager;
+    }
 
+    private static EntityManager manager;
 
     public static final double WindowHeight = 720;
     public static final double WindowWidth = WindowHeight*1.5;
@@ -30,7 +36,7 @@ public class Spiel extends Application {
     public static final double TileSize = (WindowHeight/11)-((WindowHeight*0.01)*2);
     public static final double GridPadding = WindowHeight*0.01;
 
-    public static Spielstand spielstand = new Spielstand();
+
 
     private Stage prstage;
 
@@ -52,6 +58,7 @@ public class Spiel extends Application {
     }
 
     public static void main(String[] args) throws InterruptedException {
+        manager = Persistence.createEntityManagerFactory("spielstaende").createEntityManager();
         launch();
         //spielstand.save();
     }

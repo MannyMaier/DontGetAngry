@@ -4,22 +4,22 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 public class Spiellogik {
     //Variabeln
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @OneToOne
+
+
     public static Wuerfel wuerfel = new Wuerfel();
-    @OneToMany
-    private List<Square> slSquares = new ArrayList<>();
+
+
+
+
+    public static List<Square> slSquares = new ArrayList<>();
 
     public void setSlSquares(List<Square> slSquares) {
         this.slSquares = slSquares;
         System.out.println("SL:"+slSquares);
     }
-    @OneToMany
+  /*  @OneToMany
     private List<Spieler> Spielerliste = new ArrayList<Spieler>();
 
     //public static List<Square> allSquares = new ArrayList<Square>();
@@ -39,10 +39,11 @@ public class Spiellogik {
         }
 
         System.out.println(Spielerliste);
-    }
+    }*/
 
-    public void spielsteinClicked(Spielstein spielstein, int gewuerfeltezahl, Square aktSquare){
+    public static void spielsteinClicked(Spielstein spielstein, Square aktSquare){
         int aktId = aktSquare.get_id();
+        int gewuerfeltezahl = wuerfel.getGewuerfelteZahl();
         int neueId = aktId + gewuerfeltezahl;
         int zugfeleruebrig = 0;
         Integer startfeldId = null;
@@ -146,10 +147,10 @@ public class Spiellogik {
 
     }
 
-    public Square searchSquare(int gesId){
+    public static Square searchSquare(int gesId){
 
         Square square;
-            for(Square squarefor : slSquares){
+            for(Square squarefor : Spiellogik.slSquares){
                 if(squarefor.get_id() == gesId){
                     square = squarefor;
                     return square;
@@ -159,4 +160,12 @@ public class Spiellogik {
 
     }
 
+    public void laden() {
+
+    }
+
+    public void speichern(List<Spielstein> steine){
+        Spielstand spielstand = new Spielstand();
+        spielstand.save(wuerfel, slSquares, steine);
+    }
 }

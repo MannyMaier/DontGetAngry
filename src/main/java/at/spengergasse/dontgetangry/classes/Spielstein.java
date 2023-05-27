@@ -3,24 +3,32 @@ package at.spengergasse.dontgetangry.classes;
 import at.spengergasse.dontgetangry.Spiel;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
 @Entity
-
+@Table(name = "spielsteine")
 public class Spielstein extends Circle {
 
     //
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
 
     private TypeColor color;
-    @OneToOne
+    @OneToOne(targetEntity = Square.class, orphanRemoval = true)
+    @JoinColumn(name = "spielstein_aktSquare")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Square square;
-    @OneToOne
+    @OneToOne(targetEntity = Square.class, orphanRemoval = true)
+    @JoinColumn(name = "spielstein_startSquare")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Square startSquare;
-    @OneToOne
+    @OneToOne(targetEntity = Square.class, orphanRemoval = true)
+    @JoinColumn(name = "spielstein_warteSquare")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Square warteSquare;
 
     public Spielstein() {
@@ -31,27 +39,17 @@ public class Spielstein extends Circle {
         return warteSquare;
     }
 
-    @OneToMany
-    private Spiellogik spiellogik;
+   /* @OneToOne(targetEntity = Spiellogik.class)
+    @JoinColumn(name = "spielsteine_spiellogik")
+    private Spiellogik spiellogik;*/
     public Square getStartSquare(){
         return startSquare;
     }
 
     public void setStartSquare(Square startSquare) {
         this.startSquare = startSquare;
-        //this.zielSquare = startSquare.get_id() + 39;
     }
 
-    @OneToOne
-    private Square zielSquare;
-
-    public Square getZielSquare() {
-        return zielSquare;
-    }
-
-    public void setZielSquare(Square zielSquare) {
-        this.zielSquare = zielSquare;
-    }
 
     private Boolean rundegemacht = Boolean.FALSE;
 
@@ -75,10 +73,9 @@ public class Spielstein extends Circle {
         return color;
     }
 
-    public Spielstein(TypeColor color, double x, double y, Square aktSquare, Spiellogik sl){
+    public Spielstein(TypeColor color, double x, double y, Square aktSquare){
         this.color = color;
         this.square = aktSquare;
-        this.spiellogik = sl;
         this.warteSquare = aktSquare;
 
         setRadius(Spiel.TileSize/2.5);
@@ -87,7 +84,7 @@ public class Spielstein extends Circle {
 
 
         setOnMouseClicked(event -> {
-            spiellogik.spielsteinClicked(this, spiellogik.wuerfel.getGewuerfelteZahl(), this.square);
+            Spiellogik.spielsteinClicked(this, this.square);
 
 
         });
