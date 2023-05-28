@@ -66,7 +66,10 @@ public class Controller {
     }
 
     public Controller() {
-
+        spiellogik.laden(allSquares, spielsteine, this);
+        System.out.println("CON: "+spielsteine);
+        //LgewuerfelteZahl.setText(String.valueOf(Spiellogik.wuerfel.getGewuerfelteZahl()));
+        this.aktualisiereGrafik();
     }
 
 
@@ -78,6 +81,7 @@ public class Controller {
         LgewuerfelteZahl.setText(String.valueOf(Spiellogik.wuerfel.getGewuerfelteZahl()));
         this.aktualisiereGrafik();
     }
+
 
     public void setSpielsteine (ArrayList<Spielstein> spielSteinlist){this.spielsteine = spielSteinlist;}
     public void setAllSquares (ArrayList<Square> squareArrayList){this.allSquares = squareArrayList;}
