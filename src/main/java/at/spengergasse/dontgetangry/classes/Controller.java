@@ -73,8 +73,26 @@ public class Controller {
     @FXML
     public void initialize() throws InterruptedException {
         spielfeldpane.getChildren().add(erstelleSpielfeld());
-        spiellogik.laden();
-        spielsteine = new ArrayList<>();
+        spiellogik.laden(allSquares, spielsteine, this);
+        System.out.println("CON: "+spielsteine);
+        LgewuerfelteZahl.setText(String.valueOf(Spiellogik.wuerfel.getGewuerfelteZahl()));
+        this.aktualisiereGrafik();
+    }
+
+    public void setSpielsteine (ArrayList<Spielstein> spielSteinlist){this.spielsteine = spielSteinlist;}
+    public void setAllSquares (ArrayList<Square> squareArrayList){this.allSquares = squareArrayList;}
+
+    private void aktualisiereGrafik() {
+        for(Spielstein st : spielsteine){
+            System.out.println("AKTSQUARE: "+st.getAktSquare());
+
+            double xkor = st.getAktSquare().getXkor();
+            double ykor = st.getAktSquare().getYkor();
+
+            st.move(xkor, ykor);
+            System.out.println("--------------");
+            System.out.println("AKTSQUARE: "+st.getAktSquare());
+        }
     }
 
     @FXML
@@ -102,13 +120,13 @@ public class Controller {
     }
 
     @FXML
-    void onClickSavedb (ActionEvent Actionevent){
+    void onClickSavedb (ActionEvent Actionevent) {
 
         spiellogik.speichern(this.spielsteine);
 
         System.out.println("Das Spiel wurde in der Datenbank gespeichert");
 
-    }
+   }
 
     @FXML
     void regelnlesen (ActionEvent Actionevent){
@@ -689,9 +707,11 @@ public class Controller {
                     spielsteinGroup.getChildren().add(spielstein);
                     if(spielsteine == null){
                         spielsteine = new ArrayList<>();
+                        System.out.println("In Schleife neue Liste");
                     }
 
                     spielsteine.add(spielstein);
+                    System.out.println("Liste:"+spielsteine);
                 }
 
                 yGrid++;

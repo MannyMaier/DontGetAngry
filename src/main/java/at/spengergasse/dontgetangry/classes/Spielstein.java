@@ -18,17 +18,14 @@ public class Spielstein extends Circle {
 
 
     private TypeColor color;
-    @OneToOne(targetEntity = Square.class, orphanRemoval = true)
+    @OneToOne(targetEntity = Square.class, orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "spielstein_aktSquare")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Square square;
-    @OneToOne(targetEntity = Square.class, orphanRemoval = true)
+    @OneToOne(targetEntity = Square.class, orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "spielstein_startSquare")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Square startSquare;
-    @OneToOne(targetEntity = Square.class, orphanRemoval = true)
+    @OneToOne(targetEntity = Square.class, orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "spielstein_warteSquare")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Square warteSquare;
 
     public Spielstein() {
@@ -72,6 +69,11 @@ public class Spielstein extends Circle {
     public TypeColor getColor() {
         return color;
     }
+
+    public Square getAktSquare(){
+        return this.square;
+    }
+
 
     public Spielstein(TypeColor color, double x, double y, Square aktSquare){
         this.color = color;
@@ -121,7 +123,7 @@ public class Spielstein extends Circle {
     public String toString() {
         return "Spielstein{" +
                 "color=" + color +
-                ", square=" + //square +
+                ", square=" + square.get_id()+
                 '}';
     }
 }

@@ -18,7 +18,7 @@ public class Wuerfel {
     public int wuerfeln() throws InterruptedException {
 
 
-        Thread thread = new Thread() {
+        /*Thread thread = new Thread() {
             public void run() {
                 try {
                     for (int i = 0; i < 15; i++) {
@@ -36,7 +36,7 @@ public class Wuerfel {
 
             }
         };
-        thread.start();
+        thread.start();*/
 
 
         Random r = new Random();

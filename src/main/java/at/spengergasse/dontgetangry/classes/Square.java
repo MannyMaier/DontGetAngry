@@ -23,9 +23,8 @@ public class Square extends Circle {
 
 
     //Attribut das einen Spielstand speichern kann!
-    @OneToOne(targetEntity = Spielstein.class, orphanRemoval = true)
+    @OneToOne(targetEntity = Spielstein.class, orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn( name = "felder_spielstein")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Spielstein spielstein;
 
     //Nummerierung der Felder

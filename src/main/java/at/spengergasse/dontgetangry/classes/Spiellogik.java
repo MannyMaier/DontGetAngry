@@ -1,5 +1,7 @@
 package at.spengergasse.dontgetangry.classes;
 
+import javafx.css.Size;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,7 @@ public class Spiellogik {
 
     public static Wuerfel wuerfel = new Wuerfel();
 
-
+    private Spielstand spielstand = new Spielstand();
 
 
     public static List<Square> slSquares = new ArrayList<>();
@@ -160,12 +162,27 @@ public class Spiellogik {
 
     }
 
-    public void laden() {
+    public void laden(List<Square> squareList, List<Spielstein> spielsteinList, Controller contr) {
+
+        if(spielstand.loadSquares().size() != 0){
+            contr.setAllSquares((ArrayList<Square>) squareList);
+            slSquares = squareList;
+        }
+
+       if(spielstand.loadSpielsteine().size() != 0){
+           contr.setSpielsteine((ArrayList<Spielstein>) spielstand.loadSpielsteine());
+       }
+
+       Wuerfel w = new Wuerfel();
+        if(spielstand.loadWuerfel() != null){
+            wuerfel = spielstand.loadWuerfel();
+        }
+
 
     }
 
     public void speichern(List<Spielstein> steine){
-        Spielstand spielstand = new Spielstand();
+
         spielstand.save(wuerfel, slSquares, steine);
     }
 }
