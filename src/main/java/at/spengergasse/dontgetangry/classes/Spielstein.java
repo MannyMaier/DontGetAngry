@@ -117,6 +117,7 @@ public class Spielstein extends Circle {
         double x = warteSquare.getXkor();
         double y = warteSquare.getYkor();
         relocate(x, y);
+        setRundegemacht(Boolean.FALSE);
     }
 
     @Override
