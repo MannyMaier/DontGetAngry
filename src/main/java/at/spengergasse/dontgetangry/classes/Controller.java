@@ -114,9 +114,13 @@ public class Controller {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Regeln");
         alert.setHeaderText("Don't get angry Regeln");
-        alert.setContentText("1. Jeder Spieler hat vier Figuren \n2. Man muss eine sechs würfeln um mit der Figur einzutreten \n" +
-                "3. Wenn eine andere Figur auf das Feld der eigenen kommt muss man seine Figur wieder auf dem Wartefeld platieren \n" +
-                "4. Derjenige der zuerst alle Figuren im Zielfeld hat, gewinnt das Spiel");
+        alert.setContentText("1. Jeder von wählt seine Lieblingsfarbe und nimmt sich die entsprechenden vier Figuren, die er auf die gleichfarbigen Felder in einer der Ecken stellt. \n" +
+                "2. Würfelt alle einmal – wer die höchste Zahl hat, darf anfangen. \n" +
+                "3.Um die Startfigur ins Spiel bringen zu können, braucht man eine 6 – ebenso, wenn man weitere Figuren ins Spiel bringen will. Jeder muss immer so lange (nacheinander) würfeln, bis man ein 6 hat. \n" +
+                "4. Wer an der Reihe ist, würfelt und darf seine Figur, beginnend mit der festgelegten Startfigur, entsprechend der Würfelaugen ziehen. Danach ist der Nächste von euch an der Reihe\n" +
+                "5. Wer auf ein Feld ziehen kann, auf dem bereits eine Figur des Mitspielers steht, sollte das tun. Dadurch schlägt man sie und derjenige muss von vorne anfangen. Steht auf dem Feld eine eigene Figur, muss man sich eine andere aussuchen, denn selbst schlagen kann man sich nicht.\n" +
+                "6. Nach einer Runde ums Feld kann man seine Figuren ins Ziel bringen. Dazu braucht es die genauen Würfelaugen.\n" +
+                "7. Wer zuerst alle seine vier Figuren im Ziel hat, gewinnt. Die anderen können entscheiden, ob sie noch um die letzten Plätze spielen.\n");
         alert.initStyle(StageStyle.UTILITY);
         alert.showAndWait();
 
